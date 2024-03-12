@@ -3,5 +3,27 @@ layout: layout.liquid
 title: 11ty Boilerplate
 ---
 
-<h1>Yet Another 11ty <strong>Boilerplate</strong></h1>
-<img alt="pine" src="/images/pine.png" width="50" />
+<div x-data="{thumbImage: $fetchjson('https://dummyjson.com/products/1', jsonItem='thumbnail')}">
+    <img alt="thumbnail" x-bind:src="thumbImage" />
+</div>
+
+<div x-data="{ brandName: null }" x-init="() => {
+    fetch('https://dummyjson.com/products/1')
+        .then(response => response.json())
+        .then(data => brandName = data.brand)
+}">
+    <h2 x-text="brandName" />
+</div>
+
+
+
+<div id="thumbnail"></div>
+<script>
+    function displayHTML(string) {
+        const mainImage = document.getElementById('thumbnail');
+        mainImage.innerHTML = `<img alt="test" src="${string}" />`;
+    }
+    fetch('https://dummyjson.com/products/1')
+    .then(res => res.json())
+    .then(json => displayHTML(json.thumbnail))
+</script>
