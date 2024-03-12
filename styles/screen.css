@@ -1,7 +1,7 @@
 body {
     font-family: Helvetica, sans-serif;
     color: #EAE8FF;
-    background: #2D3142;
+    background: #252525;
     padding: 0 40px;
     text-align: center;
 }
@@ -47,4 +47,12 @@ h1 strong {
 
 img.about {
     opacity: 0.5;
+}
+
+div.prodInfo {
+    padding: 20px;
+}
+
+section{
+    display: inline-flex;
 }
